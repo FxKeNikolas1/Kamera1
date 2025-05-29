@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Kamera Zugriff</title>
+</head>
+<body>
+  <h1>Meine Kamera</h1>
+  <video id="video" width="320" height="240" autoplay></video>
+
+  <script>
+    // Zugriff auf Kamera anfordern
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function(stream) {
+        document.getElementById('video').srcObject = stream;
+      })
+      .catch(function(error) {
+        console.error("Fehler beim Zugriff auf die Kamera:", error);
+      });
+  </script>
+</body>
+</html>
